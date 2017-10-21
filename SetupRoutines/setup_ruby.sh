@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2004
+# shellcheck disable=SC2162
 # --------------------------------------------------------------------------------------------
 # Description:
 #   Installs Ruby 2.4 using rbenv/ruby-build on the Raspberry Pi (all debian based OS)
 #
-# Version: 0.0.2
+# Version: 0.0.4
 #
 # Author:
 #   Brandon Callifornia https://github.com/BCallifornia
@@ -25,7 +26,8 @@ It will take about 2 hours to compile on the original Raspberry Pi,
 35 minutes on the second generation, and 16 minutes on the third.\n"
 
 # Prompt to continue
-read -pr "  Continue? (y/n) " ans
+echo "  Continue? (y/n) "
+read -p ans
 if [[ $ans != "y" ]]; then
   echo -e "\nQuitting...\n"
   exit
@@ -39,7 +41,7 @@ START_TIME=$SECONDS
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 # Add ~/.rbenv/bin to $PATH, enable shims and autocompletion
-read -dr '' String <<"EOF"
+read -d String <<EOF
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
