@@ -23,13 +23,13 @@ echo -e "
 This will install Ruby 2.4 using rbenv/ruby-build.
 
 It will take about 2 hours to compile on the original Raspberry Pi,
-35 minutes on the second generation, and 16 minutes on the third.\n"
+35 minutes on the second generation, and 16 minutes on the third.\\n"
 
 # Prompt to continue
 echo "  Continue? (y/n) "
 read -p ans
 if [[ $ans != "y" ]]; then
-  echo -e "\nQuitting...\n"
+  echo -e "\\nQuitting...\\n"
   exit
 fi
 echo
@@ -48,7 +48,7 @@ eval "$(rbenv init -)"
 EOF
 
 # Save to ~/.bashrc
-echo -e "\n${String}" >> ~/.bashrc
+echo -e "\\n${String}" >> ~/.bashrc
 
 # Enable rbenv for current shell
 eval "${String}"
@@ -71,9 +71,9 @@ rbenv global 2.4.1
 echo "gem: --no-document" > ~/.gemrc
 
 # Reminder to reload the shell
-echo -e "\nReload the current shell to get access to rbenv using:"
+echo -e "\\nReload the current shell to get access to rbenv using:"
 echo "  source ~/.bashrc"
 
 # Print the time elapsed
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
-echo -e "\nFinished in $(($ELAPSED_TIME/60/60)) hr, $(($ELAPSED_TIME/60%60)) min, and $(($ELAPSED_TIME%60)) sec\n"
+echo -e "\\nFinished in $(($ELAPSED_TIME/60/60)) hr, $(($ELAPSED_TIME/60%60)) min, and $(($ELAPSED_TIME%60)) sec\\n"
